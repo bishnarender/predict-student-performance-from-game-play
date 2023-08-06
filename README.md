@@ -24,7 +24,7 @@ out[:, FN.building_library_first_occurrence_num_event_from_end] = n - first_occu
 #- 8 is an index of a building named "library".
 </code>
 
-feature <b>=></b> fqid_tomicrofiche_first_occurrence_num_event_from_end <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> fqid_tomicrofiche_first_occurrence_num_event_from_end <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:, FN.fqid_tomicrofiche_first_occurrence_num_event_from_end] = n - first_occurrence_index[106]
@@ -34,7 +34,7 @@ out[:, FN.fqid_tomicrofiche_first_occurrence_num_event_from_end] = n - first_occ
 </code>
 
 
-feature <b>=></b> name_basic_0_count <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> name_basic_0_count <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:, FN.name_basic_0_count] = name_counts[0]
@@ -43,7 +43,7 @@ out[:, FN.name_basic_0_count] = name_counts[0]
 </code>
 
 
-feature <b>=></b> room_microfiche_last_occurrence_num_event_from_end <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> room_microfiche_last_occurrence_num_event_from_end <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:, FN.room_microfiche_last_occurrence_num_event_from_end] = n - last_occurrence_index[11]
@@ -53,7 +53,7 @@ out[:, FN.room_microfiche_last_occurrence_num_event_from_end] = n - last_occurre
 </code>
 
 
-feature <b>=></b> LG0_L1_first_report_open_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG0_L1_first_report_open_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:, FN.LG0_L1_first_report_open_duration] = history[60] - history[59]
@@ -62,7 +62,7 @@ out[:, FN.LG0_L1_first_report_open_duration] = history[60] - history[59]
 </code>
 
 
-feature <b>=></b> LG0_first_Leopold__why_don_t_you_help_me_set_up_in_the_Capitol_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG0_first_Leopold__why_don_t_you_help_me_set_up_in_the_Capitol_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 history[5] = x_et[i+1] - x_et[i]
@@ -71,7 +71,7 @@ out[:, FN.LG0_first_Leopold__why_don_t_you_help_me_set_up_in_the_Capitol_duratio
 </code>
 
 
-feature <b>=></b> LG1_first_Nope__But_Youmans_and_other_suffragists_worked_hard_to_change_that__duration <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG1_first_Nope__But_Youmans_and_other_suffragists_worked_hard_to_change_that__duration <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 history[35] = x_et[i+1] - x_et[i]
@@ -80,7 +80,7 @@ out[:, FN.LG1_first_Nope__But_Youmans_and_other_suffragists_worked_hard_to_chang
 </code>
 
 
-feature <b>=></b> level_11_event_count <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> level_11_event_count <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:, FN.level_11_event_count] = level_counts[11]
@@ -89,7 +89,7 @@ out[:, FN.level_11_event_count] = level_counts[11]
 </code>
 
 
-feature <b>=></b> LG1__LNone__name__undefined__index__count <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG1__LNone__name__undefined__index__count <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 out[:,FN.LG1__LNone__name__undefined__index__count] = history[786]
@@ -98,7 +98,7 @@ LG1__LNone__name__undefined__index__count.
 </code>
 
 
-feature <b>=></b> LG1_first_Youmans_was_a_suffragist_here_in_Wisconsin_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG1_first_Youmans_was_a_suffragist_here_in_Wisconsin_duration <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 history[23] = x_et[i+1] - x_et[i]
@@ -107,7 +107,7 @@ out[:,FN.LG1_first_Youmans_was_a_suffragist_here_in_Wisconsin_duration] = histor
 </code>
 
 
-feature <b>=></b> LG0_L2_fqid_cs_event_duration_mean <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG0_L2_fqid_cs_event_duration_mean <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 history[101] += (x_et[i+1] - x_et[i])
@@ -118,7 +118,7 @@ out[:,FN.LG0_L2_fqid_cs_event_duration_mean] = history[101]/history[102]
 </code>
 
 
-feature <b>=></b> LG1__L10__None__None__elapsed_time__diff__between__first__event_name__person_click__elapsed_time__and__subsequent__last__fqid__worker__elapsed_time <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
+Feature <b>=></b> LG1__L10__None__None__elapsed_time__diff__between__first__event_name__person_click__elapsed_time__and__subsequent__last__fqid__worker__elapsed_time <b>=></b> feature value is the same for the questions of the same level_group (per session).
 <code>
 #- FN denotes feature names class.
 history[2891] = x_et[i]
