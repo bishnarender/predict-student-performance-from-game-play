@@ -11,14 +11,14 @@ There are three level groups. Further, there are 3 questions to level_group 0 (0
 
 feature <b>=></b> question_number <b>=></b> feature value is the same for the questions of the same level_group (per session), and is equal to array of question numbers.<br>
 <code>
-# FN denotes feature names class.
+#c FN denotes feature names class.
 out[:, FN.question_number] = np.arange(questions_start_number, questions_end_number)
 </code>
 
 
 feature <b>=></b> building_library_first_occurrence_num_event_from_end <b>=></b> feature value is the same for the questions of the same level_group (per session).<br>
 <code>
-# FN denotes feature names class.
+// FN denotes feature names class.
 out[:, FN.building_library_first_occurrence_num_event_from_end] = n - first_occurrence_index[8]
 # n is the number of building events in the same level_group (per session).
 # first_occurrence_index[8] is building "library" first occurrence position/number (in n) from start.
