@@ -1,0 +1,293 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+import numpy as np
+import numba
+
+#@numba.jit(nopython=True, nogil=True, error_model='numpy')
+def generate_fqids_counts(fqids):
+    
+    # 129 => FQIDS.__len__
+    counts = np.zeros(129, dtype=np.int32)
+    n = fqids.shape[0]
+    
+    for i in range(n):
+        slot_i = fqids[i]
+        # 129 => FQIDS.__len__
+        if slot_i < 129:
+            counts[slot_i] += 1
+               
+    return counts
+
+
+# In[ ]:
+
+
+#@numba.jit(nopython=True, nogil=True, error_model='numpy')
+def generate_fqids_count_features(out, fqids):
+    fqids_counts = generate_fqids_counts(fqids)
+    
+    # 97 => FN.fqids_nunqiue
+    out[:, 97] = np.sum(fqids_counts != 0)
+
+    # 195 => FN.fqids__count
+    out[:, 195] = fqids_counts[0]
+    # 196 => FN.fqids_archivist_count
+    out[:, 196] = fqids_counts[1]
+    # 197 => FN.fqids_archivist_glasses_count
+    out[:, 197] = fqids_counts[2]
+    # 198 => FN.fqids_block_count
+    out[:, 198] = fqids_counts[3]
+    # 199 => FN.fqids_block_0_count
+    out[:, 199] = fqids_counts[4]
+    # 200 => FN.fqids_block_1_count
+    out[:, 200] = fqids_counts[5]
+    # 201 => FN.fqids_block_badge_count
+    out[:, 201] = fqids_counts[6]
+    # 202 => FN.fqids_block_badge_2_count
+    out[:, 202] = fqids_counts[7]
+    # 203 => FN.fqids_block_magnify_count
+    out[:, 203] = fqids_counts[8]
+    # 204 => FN.fqids_block_nelson_count
+    out[:, 204] = fqids_counts[9]
+    # 205 => FN.fqids_block_tocollection_count
+    out[:, 205] = fqids_counts[10]
+    # 206 => FN.fqids_block_tomap1_count
+    out[:, 206] = fqids_counts[11]
+    # 207 => FN.fqids_block_tomap2_count
+    out[:, 207] = fqids_counts[12]
+    # 208 => FN.fqids_boss_count
+    out[:, 208] = fqids_counts[13]
+    # 209 => FN.fqids_businesscards_count
+    out[:, 209] = fqids_counts[14]
+    # 210 => FN.fqids_businesscards_card_0_next_count
+    out[:, 210] = fqids_counts[15]
+    # 211 => FN.fqids_businesscards_card_1_next_count
+    out[:, 211] = fqids_counts[16]
+    # 212 => FN.fqids_businesscards_card_bingo_bingo_count
+    out[:, 212] = fqids_counts[17]
+    # 213 => FN.fqids_businesscards_card_bingo_next_count
+    out[:, 213] = fqids_counts[18]
+    # 214 => FN.fqids_ch3start_count
+    out[:, 214] = fqids_counts[19]
+    # 215 => FN.fqids_chap1_finale_count
+    out[:, 215] = fqids_counts[20]
+    # 216 => FN.fqids_chap1_finale_c_count
+    out[:, 216] = fqids_counts[21]
+    # 217 => FN.fqids_chap2_finale_count
+    out[:, 217] = fqids_counts[22]
+    # 218 => FN.fqids_chap2_finale_c_count
+    out[:, 218] = fqids_counts[23]
+    # 219 => FN.fqids_chap4_finale_c_count
+    out[:, 219] = fqids_counts[24]
+    # 220 => FN.fqids_coffee_count
+    out[:, 220] = fqids_counts[25]
+    # 221 => FN.fqids_colorbook_count
+    out[:, 221] = fqids_counts[26]
+    # 222 => FN.fqids_confrontation_count
+    out[:, 222] = fqids_counts[27]
+    # 223 => FN.fqids_crane_ranger_count
+    out[:, 223] = fqids_counts[28]
+    # 224 => FN.fqids_cs_count
+    out[:, 224] = fqids_counts[29]
+    # 225 => FN.fqids_directory_count
+    out[:, 225] = fqids_counts[30]
+    # 226 => FN.fqids_directory_closeup_archivist_count
+    out[:, 226] = fqids_counts[31]
+    # 227 => FN.fqids_door_block_clean_count
+    out[:, 227] = fqids_counts[32]
+    # 228 => FN.fqids_door_block_talk_count
+    out[:, 228] = fqids_counts[33]
+    # 229 => FN.fqids_doorblock_count
+    out[:, 229] = fqids_counts[34]
+    # 230 => FN.fqids_expert_count
+    out[:, 230] = fqids_counts[35]
+    # 231 => FN.fqids_flag_girl_count
+    out[:, 231] = fqids_counts[36]
+    # 232 => FN.fqids_fox_count
+    out[:, 232] = fqids_counts[37]
+    # 233 => FN.fqids_glasses_count
+    out[:, 233] = fqids_counts[38]
+    # 234 => FN.fqids_gramps_count
+    out[:, 234] = fqids_counts[39]
+    # 235 => FN.fqids_groupconvo_count
+    out[:, 235] = fqids_counts[40]
+    # 236 => FN.fqids_groupconvo_flag_count
+    out[:, 236] = fqids_counts[41]
+    # 237 => FN.fqids_intro_count
+    out[:, 237] = fqids_counts[42]
+    # 238 => FN.fqids_janitor_count
+    out[:, 238] = fqids_counts[43]
+    # 239 => FN.fqids_journals_count
+    out[:, 239] = fqids_counts[44]
+    # 240 => FN.fqids_journals_hub_topics_count
+    out[:, 240] = fqids_counts[45]
+    # 241 => FN.fqids_journals_pic_0_next_count
+    out[:, 241] = fqids_counts[46]
+    # 242 => FN.fqids_journals_pic_1_next_count
+    out[:, 242] = fqids_counts[47]
+    # 243 => FN.fqids_journals_pic_2_bingo_count
+    out[:, 243] = fqids_counts[48]
+    # 244 => FN.fqids_journals_pic_2_next_count
+    out[:, 244] = fqids_counts[49]
+    # 245 => FN.fqids_journals_flag_count
+    out[:, 245] = fqids_counts[50]
+    # 246 => FN.fqids_journals_flag_hub_topics_count
+    out[:, 246] = fqids_counts[51]
+    # 247 => FN.fqids_journals_flag_hub_topics_old_count
+    out[:, 247] = fqids_counts[52]
+    # 248 => FN.fqids_journals_flag_pic_0_bingo_count
+    out[:, 248] = fqids_counts[53]
+    # 249 => FN.fqids_journals_flag_pic_0_next_count
+    out[:, 249] = fqids_counts[54]
+    # 250 => FN.fqids_journals_flag_pic_0_old_next_count
+    out[:, 250] = fqids_counts[55]
+    # 251 => FN.fqids_journals_flag_pic_1_bingo_count
+    out[:, 251] = fqids_counts[56]
+    # 252 => FN.fqids_journals_flag_pic_1_next_count
+    out[:, 252] = fqids_counts[57]
+    # 253 => FN.fqids_journals_flag_pic_1_old_next_count
+    out[:, 253] = fqids_counts[58]
+    # 254 => FN.fqids_journals_flag_pic_2_bingo_count
+    out[:, 254] = fqids_counts[59]
+    # 255 => FN.fqids_journals_flag_pic_2_next_count
+    out[:, 255] = fqids_counts[60]
+    # 256 => FN.fqids_journals_flag_pic_2_old_next_count
+    out[:, 256] = fqids_counts[61]
+    # 257 => FN.fqids_key_count
+    out[:, 257] = fqids_counts[62]
+    # 258 => FN.fqids_lockeddoor_count
+    out[:, 258] = fqids_counts[63]
+    # 259 => FN.fqids_logbook_count
+    out[:, 259] = fqids_counts[64]
+    # 260 => FN.fqids_logbook_page_bingo_count
+    out[:, 260] = fqids_counts[65]
+    # 261 => FN.fqids_magnify_count
+    out[:, 261] = fqids_counts[66]
+    # 262 => FN.fqids_need_glasses_count
+    out[:, 262] = fqids_counts[67]
+    # 263 => FN.fqids_notebook_count
+    out[:, 263] = fqids_counts[68]
+    # 264 => FN.fqids_outtolunch_count
+    out[:, 264] = fqids_counts[69]
+    # 265 => FN.fqids_photo_count
+    out[:, 265] = fqids_counts[70]
+    # 266 => FN.fqids_plaque_count
+    out[:, 266] = fqids_counts[71]
+    # 267 => FN.fqids_plaque_face_date_count
+    out[:, 267] = fqids_counts[72]
+    # 268 => FN.fqids_reader_count
+    out[:, 268] = fqids_counts[73]
+    # 269 => FN.fqids_reader_paper0_next_count
+    out[:, 269] = fqids_counts[74]
+    # 270 => FN.fqids_reader_paper0_prev_count
+    out[:, 270] = fqids_counts[75]
+    # 271 => FN.fqids_reader_paper1_next_count
+    out[:, 271] = fqids_counts[76]
+    # 272 => FN.fqids_reader_paper1_prev_count
+    out[:, 272] = fqids_counts[77]
+    # 273 => FN.fqids_reader_paper2_bingo_count
+    out[:, 273] = fqids_counts[78]
+    # 274 => FN.fqids_reader_paper2_next_count
+    out[:, 274] = fqids_counts[79]
+    # 275 => FN.fqids_reader_paper2_prev_count
+    out[:, 275] = fqids_counts[80]
+    # 276 => FN.fqids_reader_flag_count
+    out[:, 276] = fqids_counts[81]
+    # 277 => FN.fqids_reader_flag_paper0_next_count
+    out[:, 277] = fqids_counts[82]
+    # 278 => FN.fqids_reader_flag_paper0_prev_count
+    out[:, 278] = fqids_counts[83]
+    # 279 => FN.fqids_reader_flag_paper1_next_count
+    out[:, 279] = fqids_counts[84]
+    # 280 => FN.fqids_reader_flag_paper1_prev_count
+    out[:, 280] = fqids_counts[85]
+    # 281 => FN.fqids_reader_flag_paper2_bingo_count
+    out[:, 281] = fqids_counts[86]
+    # 282 => FN.fqids_reader_flag_paper2_next_count
+    out[:, 282] = fqids_counts[87]
+    # 283 => FN.fqids_reader_flag_paper2_prev_count
+    out[:, 283] = fqids_counts[88]
+    # 284 => FN.fqids_remove_cup_count
+    out[:, 284] = fqids_counts[89]
+    # 285 => FN.fqids_report_count
+    out[:, 285] = fqids_counts[90]
+    # 286 => FN.fqids_retirement_letter_count
+    out[:, 286] = fqids_counts[91]
+    # 287 => FN.fqids_savedteddy_count
+    out[:, 287] = fqids_counts[92]
+    # 288 => FN.fqids_seescratches_count
+    out[:, 288] = fqids_counts[93]
+    # 289 => FN.fqids_teddy_count
+    out[:, 289] = fqids_counts[94]
+    # 290 => FN.fqids_tobasement_count
+    out[:, 290] = fqids_counts[95]
+    # 291 => FN.fqids_tocage_count
+    out[:, 291] = fqids_counts[96]
+    # 292 => FN.fqids_tocloset_count
+    out[:, 292] = fqids_counts[97]
+    # 293 => FN.fqids_tocloset_dirty_count
+    out[:, 293] = fqids_counts[98]
+    # 294 => FN.fqids_tocollection_count
+    out[:, 294] = fqids_counts[99]
+    # 295 => FN.fqids_tocollectionflag_count
+    out[:, 295] = fqids_counts[100]
+    # 296 => FN.fqids_toentry_count
+    out[:, 296] = fqids_counts[101]
+    # 297 => FN.fqids_tofrontdesk_count
+    out[:, 297] = fqids_counts[102]
+    # 298 => FN.fqids_togrampa_count
+    out[:, 298] = fqids_counts[103]
+    # 299 => FN.fqids_tohallway_count
+    out[:, 299] = fqids_counts[104]
+    # 300 => FN.fqids_tomap_count
+    out[:, 300] = fqids_counts[105]
+    # 301 => FN.fqids_tomicrofiche_count
+    out[:, 301] = fqids_counts[106]
+    # 302 => FN.fqids_tostacks_count
+    out[:, 302] = fqids_counts[107]
+    # 303 => FN.fqids_tracks_count
+    out[:, 303] = fqids_counts[108]
+    # 304 => FN.fqids_tracks_hub_deer_count
+    out[:, 304] = fqids_counts[109]
+    # 305 => FN.fqids_trigger_coffee_count
+    out[:, 305] = fqids_counts[110]
+    # 306 => FN.fqids_trigger_scarf_count
+    out[:, 306] = fqids_counts[111]
+    # 307 => FN.fqids_tunic_count
+    out[:, 307] = fqids_counts[112]
+    # 308 => FN.fqids_tunic_capitol_0_count
+    out[:, 308] = fqids_counts[113]
+    # 309 => FN.fqids_tunic_capitol_1_count
+    out[:, 309] = fqids_counts[114]
+    # 310 => FN.fqids_tunic_capitol_2_count
+    out[:, 310] = fqids_counts[115]
+    # 311 => FN.fqids_tunic_drycleaner_count
+    out[:, 311] = fqids_counts[116]
+    # 312 => FN.fqids_tunic_flaghouse_count
+    out[:, 312] = fqids_counts[117]
+    # 313 => FN.fqids_tunic_historicalsociety_count
+    out[:, 313] = fqids_counts[118]
+    # 314 => FN.fqids_tunic_hub_slip_count
+    out[:, 314] = fqids_counts[119]
+    # 315 => FN.fqids_tunic_humanecology_count
+    out[:, 315] = fqids_counts[120]
+    # 316 => FN.fqids_tunic_kohlcenter_count
+    out[:, 316] = fqids_counts[121]
+    # 317 => FN.fqids_tunic_library_count
+    out[:, 317] = fqids_counts[122]
+    # 318 => FN.fqids_tunic_wildlife_count
+    out[:, 318] = fqids_counts[123]
+    # 319 => FN.fqids_unlockdoor_count
+    out[:, 319] = fqids_counts[124]
+    # 320 => FN.fqids_wells_count
+    out[:, 320] = fqids_counts[125]
+    # 321 => FN.fqids_wellsbadge_count
+    out[:, 321] = fqids_counts[126]
+    # 322 => FN.fqids_what_happened_count
+    out[:, 322] = fqids_counts[127]
+    # 323 => FN.fqids_worker_count
+    out[:, 323] = fqids_counts[128]
+
