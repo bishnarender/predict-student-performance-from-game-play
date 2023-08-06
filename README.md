@@ -6,9 +6,14 @@
 -----
 For better understanding of project, read the files in the following order:
 1. eda.ipynb 
-2. preprocess.ipynb
-3. train_type_1.ipynb
-4. inference.ipynb
+2. conversion.ipynb
+3. preprocess.ipynb
+4. features_code.ipynb
+5. features_generation.ipynb OR features_generation_my_.ipynb
+6. train.ipynb
+7. student-submission.ipynb
+
+<b>Code has been explained in the above files and in the linked files to these.</b>
 
 There was extensive use of numba and C for the "feature generation" code. But there is separate file (features_generation_my_.ipynb) available to bypass numba and C and to <b>view in-line code explanation</b>.
 
