@@ -146,3 +146,16 @@ out[:FN.LG1__L10__None__None__elapsed_time__diff__between__first__event_name__pe
 #- history[2891] is the "time elapsed" when the event has fqid==worker after the first event with event_name==person_click has happened, under the "level_group==1 and level==10". LG1__L10__fqid__worker__elapsed_time__last__after__first__event_name__person_click__index.
 #- history[1447] is the "time elapsed" when the event has event_name==worker for the first time under the "level_group==1 and level==10". LG1__L10__event_name__person_click__elapsed_time__first.
 </code>
+
+Feature <b>=></b> LG1__LNone__event_name__observation_click__ETsinceprev__max <b>=></b> feature value is the same for the questions of the same level_group (per session).
+<code>
+#- FN denotes feature names class.
+et_since_prev = x_et[i] - x_et[i-1]; // C++ code.
+history[685] = et_since_prev; // C++ code.
+temp = ((history[685] == -INFINITY) ? NAN : history[685]); // C++ code.
+out[:FN.LG1__LNone__event_name__observation_click__ETsinceprev__max] = temp
+#- history[685] is the difference between "time elapsed" when the event has event_name==observation_click and "time elapsed" of the previous event, under the "level_group==1 and same level". LG1__LNone__event_name__observation_click__ETsinceprev__max.
+</code>
+
+-----
+<b>A single ‭LightGBM ‬model was trained on all of the data.</b>
