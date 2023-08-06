@@ -1,5 +1,14 @@
-# predict-student-performance-from-game-play
+## predict-student-performance-from-game-play
+## score at 5th position is achieved.
+![student-score](https://github.com/bishnarender/predict-student-performance-from-game-play/assets/49610834/6a8219fc-b7d5-46ee-96a0-d56db2a16353)
 
+### Start 
+-----
+For better understanding of project, read the files in the following order:
+1. eda.ipynb 
+2. preprocess.ipynb
+3. train_type_1.ipynb
+4. inference.ipynb
 
 There was extensive use of numba and C for the "feature generation" code. But there is separate file (features_generation_my_.ipynb) available to bypass numba and C and to <b>view in-line code explanation</b>.
 
@@ -7,6 +16,11 @@ There was extensive use of numba and C for the "feature generation" code. But th
 
 There are three level groups. Further, there are 3 questions to level_group 0 (0-4), 10 questions to level_group 1 (5-12) and 5 questions to level_group 2 (13-22).
 
+### Important Features
+-----
+![importance](https://github.com/bishnarender/predict-student-performance-from-game-play/assets/49610834/5cf2e984-1b21-409c-b3ab-dec44b19e47f)
+
+<b>Below, describing some of the important features.</b>
 
 Feature <b>=></b> question_number <b>=></b> feature value is the same for the questions of the same level_group (per session), and is equal to array of question numbers.
 <code>
